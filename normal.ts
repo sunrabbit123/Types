@@ -28,4 +28,39 @@ const color1: Color = Color.Red;
 const color2: string = Color[3];
 console.log(color2); // expected Blue
 
-const unknownValue: unknown = 4;
+let unknownValue: unknown = 4;
+unknownValue = "asdf";
+unknownValue = false;
+// unknownValue.toFixed(); // error
+
+let anyValue: any = 4;
+anyValue = "Asdf";
+anyValue = false;
+anyValue.toFixed(); // not error
+
+let voidValue: void = undefined;
+voidValue = null;
+
+function returnVoid(): void {}
+
+//never type
+function error(message: string): never {
+  throw new Error(message);
+}
+function fail() {
+  return error("Something failed");
+}
+function infiniteLoop(): never {
+  while (true) {}
+}
+
+//object
+
+declare function create(o: object): void;
+create({ prop: 0 });
+create(null);
+create(undefined);
+create(42);
+create("string");
+create(false);
+create(Number("42"));
