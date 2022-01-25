@@ -24,25 +24,23 @@ const firstWindow: Lolem = {
   description: "asdf",
 };
 
-
 // 2. Types
-type Animal {
+type Animal = {
   name: string;
-}
+};
 
 type Bear = Animal & {
   honey: boolean;
-}
+};
 
 const bear: Bear = { name: "molo", honey: true };
-
 
 // A type cannot be changed after being created
 // Error : Duplicate identifier 'Something'
 type Something = {
   title: string;
-}
+};
 
-type Something = {
-  description : string;
-}
+type Something2 = {
+  description: string;
+};
